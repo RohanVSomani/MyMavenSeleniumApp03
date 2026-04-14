@@ -2,12 +2,12 @@ pipeline {
     agent any  // Use any available agent
 
     tools {
-        maven 'Maven'  // Ensure this matches the name configured in Jenkins
+        maven 'maven'  // Ensure this matches the name configured in Jenkins
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/ShruthiBGowda/MyFirstMaven.git'
+                git branch: 'main', url: 'https://github.com/RohanVSomani/MyMavenSeleniumApp03.git'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Start the JAR application
-                sh 'java -jar target/MyFirstMaven-1.0-SNAPSHOT.jar'
+                sh 'mvn exec:java -Dexec.mainClass="com.example.App'
             }
         }
 
