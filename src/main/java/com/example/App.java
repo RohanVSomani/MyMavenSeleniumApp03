@@ -15,11 +15,11 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         ChromeOptions options = new ChromeOptions();
-        
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+options.addArguments("--headless");                 // run without UI
+options.addArguments("--no-sandbox");              // required in Linux/Jenkins
+options.addArguments("--disable-dev-shm-usage");   // avoid memory issues
 
-        WebDriver driver = new ChromeDriver(options);
+WebDriver driver = new ChromeDriver(options);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         driver.manage().window().maximize();
